@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasir Warung Pro</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="splash">
+<h1>🛒 Kasir Warung Pro</h1>
+</div>
+
+<h1>🛒 Kasir Warung Pro</h1>
+
+<button onclick="darkMode()">🌙 Dark Mode</button>
+<button onclick="backup()">💾 Backup</button>
+
+<div class="stats">
+
+<div class="box">
+<h2 id="jmlProduk">0</h2>
+<p>Produk</p>
+</div>
+
+<div class="box">
+<h2 id="penjualan">0</h2>
+<p>Penjualan</p>
+</div>
+
+<div class="box">
+<h2 id="keuntungan">0</h2>
+<p>Keuntungan</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Tambah Produk</h3>
+
+<input id="nama" placeholder="Nama Barang">
+
+<input id="modal" type="number" placeholder="Modal">
+
+<input id="harga" type="number" placeholder="Harga Jual">
+
+<input id="stok" type="number" placeholder="Stok">
+
+<button onclick="tambahProduk()">
+Tambah Produk
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Daftar Produk</h3>
+
+<input
+id="cari"
+placeholder="Cari Produk..."
+onkeyup="renderProduk()"
+>
+
+<table>
+
+<thead>
+<tr>
+<th>Nama</th>
+<th>Harga</th>
+<th>Stok</th>
+<th>Aksi</th>
+</tr>
+</thead>
+
+<tbody id="produkBody"></tbody>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h3>Keranjang</h3>
+
+<div id="keranjang"></div>
+<div class="card">
+    <h3>Riwayat Transaksi</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>Barang</th>
+                <th>Harga</th>
+            </tr>
+        </thead>
+
+        <tbody id="riwayatBody"></tbody>
+    </table>
+</div>
+
+<h2>
+Total: Rp
+<span id="total">0</span>
+</h2>
+
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+</body>
+</html>
+<button onclick="exportExcel()">
+📊 Export Excel
+</button>
+<input
+type="file"
+id="restoreFile"
+onchange="restoreBackup(event)"
+>
