@@ -367,3 +367,10 @@ if ("serviceWorker" in navigator) {
   });
 
 }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/kasir-warung/sw.js')
+      .then(reg => console.log('Service Worker berhasil aktif, scope: ', reg.scope))
+      .catch(err => console.error('Service Worker gagal aktif: ', err));
+  });
+}
